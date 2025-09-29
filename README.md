@@ -15,4 +15,4 @@ TracingPoint est une application simple pour tracer des fonctions mathématiques
 git clone https://github.com/ton-utilisateur/TracingPoint.git
 cd TracingPoint
 pip install -r requirements.txt
-python main.py
+python tracingpoint.py
