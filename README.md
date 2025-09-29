@@ -6,7 +6,6 @@ TracingPoint est une application simple pour tracer des fonctions mathématiques
 
 - Saisie d’expressions mathématiques (`sin(x)`, `x**2 + 3*x - 5`, `floor(x)`, etc...)
 - Tracé interactif des graphes
-- Support des fonctions mathématiques classiques : `sin`, `cos`, `tan`, `exp`, `log`, etc.
 - Zoom et exploration du graphe
 
 ## Installation
