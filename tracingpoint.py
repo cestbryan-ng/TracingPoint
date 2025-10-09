@@ -238,7 +238,7 @@ class MonApp(CTk.CTk):
             plt.axvline(x=0, color='k', linewidth=0.8, alpha=0.7)
             plt.xlabel("x", fontsize=14, fontweight='bold')
             plt.ylabel("f(x)", fontsize=14, fontweight='bold')
-            plt.title(f"Graphique de f(x) = {fonction}", fontsize=16, fontweight='bold', pad=20)
+            plt.title(f"Fonction f(x) = {fonction}", fontsize=16, fontweight='bold', pad=20)
             plt.legend(fontsize=12, framealpha=0.9)
             plt.tight_layout()
             
