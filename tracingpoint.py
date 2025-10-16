@@ -14,7 +14,7 @@ class MonApp(CTk.CTk):
         
     def config_interface(self):
         self.geometry("800x650")
-        self.title("Tracing Point - Traceur de Fonctions")
+        self.title("Tracing Point | Traceur de Fonctions")
         self.resizable(True, True)
         CTk.set_appearance_mode("dark")
         CTk.set_default_color_theme("blue")
@@ -94,12 +94,12 @@ class MonApp(CTk.CTk):
         self.x_frame.pack(side="left", padx=10, fill="both", expand=True)
         
         CTk.CTkLabel(self.x_frame, text="Plage X:", font=self.fonts['label']).pack()
-        self.x_min = CTk.CTkSlider(self.x_frame, from_=0, to=-500, number_of_steps=100)
+        self.x_min = CTk.CTkSlider(self.x_frame, from_=-500, to=500, number_of_steps=200)
         self.x_min.set(-100)
         self.x_min.pack(pady=2)
         CTk.CTkLabel(self.x_frame, text="Min", font=self.fonts['label']).pack()
         
-        self.x_max = CTk.CTkSlider(self.x_frame, from_=0, to=500, number_of_steps=100)
+        self.x_max = CTk.CTkSlider(self.x_frame, from_=-500, to=500, number_of_steps=200)
         self.x_max.set(100)
         self.x_max.pack(pady=2)
         CTk.CTkLabel(self.x_frame, text="Max", font=self.fonts['label']).pack()
@@ -115,24 +115,11 @@ class MonApp(CTk.CTk):
             height=50,
             corner_radius=25,
             command=self.tracer,
-            fg_color="#14943e",
-            hover_color=("#14a085", "#12866f")
+            fg_color="#1f538d",
+            hover_color=("#19406d", "#19406d")
         )
         self.bouton_tracer.pack(side="left", padx=10)
         
-        self.bouton_effacer = CTk.CTkButton(
-            self.frame_boutons,
-            text="Effacer",
-            font=self.fonts['button'],
-            width=150,
-            height=50,
-            corner_radius=25,
-            command=self.effacer,
-            fg_color=("#d4613a", "#d4613a"),
-            hover_color=("#b8441f", "#b8441f")
-        )
-        self.bouton_effacer.pack(side="left", padx=10)
-
         self.bouton_quitter = CTk.CTkButton(
             self.frame_boutons,
             text="Quitter",
@@ -170,7 +157,7 @@ class MonApp(CTk.CTk):
             nouvelle_fonction = self.preparation_fonction(fonction)
             print(nouvelle_fonction)
             
-            X = linspace(x_min, x_max, 20000)
+            X = linspace(x_min, x_max, 50000)
             Y = []
             
             points_fonction = 0
@@ -259,9 +246,6 @@ class MonApp(CTk.CTk):
             )
             msgbox.showerror("Erreur de tracé", error_msg)
             
-    def effacer(self):
-        plt.close('all')
-        
     def fermer(self):
         plt.close('all')
         self.quit()
