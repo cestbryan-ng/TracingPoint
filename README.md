@@ -4,14 +4,14 @@ TracingPoint est une application simple pour tracer des fonctions mathématiques
 
 ## Fonctionnalités
 
-- Saisie d’expressions mathématiques (`sin(x)`, `x**2 + 3*x - 5`, `floor(x)`, etc...)
+- Saisie d’expressions mathématiques
 - Tracé interactif des graphes
 - Zoom et exploration du graphe
 
 ## Installation
 
 ```bash
-git clone https://github.com/ton-utilisateur/TracingPoint.git
+git clone https://github.com/cestbryan-ng/TracingPoint.git
 cd TracingPoint
 pip install -r requirements.txt
 python tracingpoint.py
