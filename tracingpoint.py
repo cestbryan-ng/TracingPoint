@@ -67,7 +67,7 @@ class MonApp(CTk.CTk):
             width=600,
             height=50,
             font=self.fonts["entry"],
-            placeholder_text="Exemples: 2x+4, sin(x)**4, sqrt(x), x**3-2x+1",
+            placeholder_text="Exemples: 2x+4, tan(x), sqrt(x), 1/x",
             corner_radius=15,
             border_width=2,
         )
@@ -110,22 +110,35 @@ class MonApp(CTk.CTk):
             self.frame_boutons,
             text="Tracer la fonction",
             font=self.fonts["button"],
-            width=200,
+            width=120,
             height=50,
-            corner_radius=25,
+            corner_radius=10,
             command=self.tracer,
             fg_color="#1f538d",
             hover_color=("#19406d", "#19406d"),
         )
         self.bouton_tracer.pack(side="left", padx=10)
 
+        self.bouton_effacer = CTk.CTkButton(
+            self.frame_boutons,
+            text="Effacer",
+            font=self.fonts["button"],
+            width=100,
+            height=50,
+            corner_radius=10,
+            command=self.effacer,
+            fg_color=("#d4613a", "#d4613a"),
+            hover_color=("#b8441f", "#b8441f"),
+        )
+        self.bouton_effacer.pack(side="left", padx=10)
+
         self.bouton_quitter = CTk.CTkButton(
             self.frame_boutons,
             text="Quitter",
             font=self.fonts["button"],
-            width=150,
+            width=100,
             height=50,
-            corner_radius=25,
+            corner_radius=10,
             command=self.fermer,
             fg_color=("#c41e3a", "#c41e3a"),
             hover_color=("#a01729", "#a01729"),
@@ -215,6 +228,9 @@ class MonApp(CTk.CTk):
                 f"Évitez les divisions par zéro"
             )
             msgbox.showerror("Erreur de tracé", error_msg)
+
+    def effacer(self):
+        plt.close("all")
 
     def fermer(self):
         plt.close("all")

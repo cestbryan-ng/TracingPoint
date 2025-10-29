@@ -1,6 +1,5 @@
-import re
 import pytest
-from numpy import pi, nan
+from numpy import pi, nan, isnan
 from tracingpoint import calcul_image, preparation_fonction, creation_segments
 
 
@@ -25,11 +24,11 @@ def test_evaluation_fonction():
 
 
 def test_creation_segments():
-    X = [1.0, 2.0, 3.0, 4.0, 5.0]
-    Y = [1.0, 4.0, nan, 16.0, 25.0]
+    X = [1, 2, 3, 4, 5, 6]
+    Y = [1.0, 1.1, nan, 4.0, 4.1, 4.2] 
 
     segments = creation_segments(X, Y)
 
     assert len(segments) == 2
-    assert segments[0] == ([1.0, 2.0], [1.0, 4.0])
-    assert segments[1] == ([4.0, 5.0], [16.0, 25.0])
+    assert segments[0] == ([1, 2], [1.0, 1.1])
+    assert segments[1] == ([4, 5, 6], [4.0, 4.1, 4.2])
