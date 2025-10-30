@@ -1,7 +1,7 @@
 # Tracing Point
 
 
-### SetUp
+## SetUp
 
 Pour éxecuter le script, suivez les commmandes suivantes :
 ```bash
@@ -14,22 +14,22 @@ python tracingpoint.py
 ```
 
 
-### Description
+## Description
 
 **Tracing Point** est une application desktop interactive permettant de tracer des fonctions mathématiques avec une interface graphique moderne et intuitive. Développée en Python avec CustomTkinter et Matplotlib, cette application offre aux passionnés de mathématiques un outil puissant pour visualiser rapidement n'importe quelle fonction mathématique.
 
 
-#### Fonctionnalités principales
+### Fonctionnalités principales
 
 L'application permet de saisir des fonctions mathématiques en notation naturelle (par exemple "2x+4" au lieu de "2*x+4") et génère automatiquement des graphiques professionnels. Elle gère intelligemment les discontinuités, les asymptotes et les valeurs non définies, produisant des tracés nets et précis même pour des fonctions complexes comme tan(x).
 
 Une fonctionnalité clé est la possibilité de tracer plusieurs fonctions successivement sans fermer les graphiques précédents, permettant ainsi des comparaisons visuelles directes. Un bouton "Quitter" permet de fermer toutes les fenêtres de graphiques en un seul clic, offrant une gestion propre et efficace des ressources.
 
 
-#### Architecture du projet
+### Architecture du projet
 
 
-##### `tracingpoit.py` - Application principale
+#### `tracingpoit.py` - Application principale
 
 Ce fichier contient la classe `MonApp` qui hérite de `CTk.CTk` (CustomTkinter). J'ai choisi CustomTkinter plutôt que Tkinter standard pour son apparence moderne et son thème sombre natif, offrant une expérience utilisateur plus agréable.
 
@@ -40,7 +40,7 @@ La méthode `config_polices()` définit une hiérarchie typographique cohérente
 La méthode `create_interface()` construit méthodiquement l'interface en plusieurs sections.
 
 
-##### Gestion intelligente de la syntaxe
+#### Gestion intelligente de la syntaxe
 
 La méthode `preparation_fonction()` est au cœur de l'expérience utilisateur. Elle utilise des expressions régulières pour transformer la notation naturelle en syntaxe Python valide :
 - `2x` devient `2*x`
@@ -51,12 +51,12 @@ La méthode `preparation_fonction()` est au cœur de l'expérience utilisateur. 
 Cette fonctionnalité évite aux utilisateurs de se soucier de la syntaxe exacte, rendant l'application accessible même aux débutants.
 
 
-##### Gestion d'entrée robuste
+#### Gestion d'entrée robuste
 
 L'application implémente une validation stricte des entrées pour garantir la sécurité et la fiabilité. Seule la variable `x` est reconnue comme variable valide - toute autre variable générera une erreur. Cette restriction délibérée évite les confusions et les erreurs d'évaluation, en fournissant un retour clair à l'utilisateur en cas de tentative d'utilisation d'autres variables comme `y`, `t` ou `n`. L'évaluation des fonctions utilise `eval()` avec un contexte contrôlé qui limite l'accès aux fonctions mathématiques de NumPy uniquement, empêchant l'exécution de code arbitraire ou malveillant.
 
 
-##### Algorithme de tracé avancé
+#### Algorithme de tracé avancé
 
 La méthode `calcul_image()` évalue la fonction en un point donné en utilisant `eval()` avec un contexte sécurisé. Si le résultat est infini (`isinf()`) ou indéfini (`isnan()`), la fonction retourne `nan` pour permettre à Matplotlib de gérer l'interruption du tracé. Cette approche évite les erreurs lors du tracé de fonctions comme `1/x` ou `tan(x)` qui ont des asymptotes.
 
@@ -67,7 +67,7 @@ La méthode `tracer()` est la méthode principale qui orchestre tout le processu
 Les valeurs infinies et NaN sont remplacées par `nan` de NumPy, permettant à Matplotlib de gérer naturellement les interruptions dans le tracé.
 
 
-##### Interface utilisateur
+#### Interface utilisateur
 
 L'interface se compose de plusieurs sections :
 - Un titre élégant avec dégradé de couleur
@@ -80,7 +80,7 @@ J'ai délibérément limité les paramètres ajustables pour éviter de surcharg
 La méthode `fermer()` assure une fermeture propre de l'application en appelant `plt.close('all')` pour fermer toutes les fenêtres de graphiques ouvertes, puis libère les ressources avec `quit()` et `destroy()`. Cette approche garantit qu'aucune fenêtre orpheline ne reste ouverte après la fermeture de l'application principale.
 
 
-#### Choix de conception
+### Choix de conception
 
 **Pourquoi 110,000 points ?** Après expérimentation, ce nombre offre le meilleur compromis entre fluidité des courbes et performance. Moins de points donnaient des courbes anguleuses, davantage ralentissait l'affichage sans amélioration visible.
 
@@ -93,6 +93,6 @@ La méthode `fermer()` assure une fermeture propre de l'application en appelant 
 **Variable unique 'x'** - Restreindre l'application à une seule variable `x` simplifie l'interface et l'utilisation. Cette contrainte correspond à l'usage standard en mathématiques où les fonctions d'une variable utilisent traditionnellement `x`. Supporter plusieurs variables aurait nécessité une interface plus complexe avec des contrôles supplémentaires, diluant la simplicité qui fait la force de l'application.
 
 
-#### Conclusion
+### Conclusion
 
 Tracing Point démontre qu'une application mathématique peut être à la fois puissante et accessible. L'accent mis sur l'expérience utilisateur, avec la notation naturelle et la gestion automatique des discontinuités, en fait un outil pratique pour l'apprentissage et l'enseignement des mathématiques. La possibilité de tracer et comparer plusieurs fonctions simultanément, combinée à une gestion d'entrée robuste, fait de Tracing Point un outil à la fois simple pour les débutants et suffisamment puissant pour l'exploration mathématique avancée.
