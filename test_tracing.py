@@ -25,7 +25,7 @@ def test_evaluation_fonction():
 
 def test_creation_segments():
     X = [1, 2, 3, 4, 5, 6]
-    Y = [1.0, 1.1, nan, 4.0, 4.1, 4.2] 
+    Y = [1.0, 1.1, nan, 4.0, 4.1, 4.2]
 
     segments = creation_segments(X, Y)
 
