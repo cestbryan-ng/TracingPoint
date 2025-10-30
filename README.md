@@ -1,7 +1,7 @@
 # Tracing Point
 
 
-#### SetUp
+### SetUp
 
 Pour éxecuter le script, suivez les commmandes suivantes :
 ```bash
@@ -14,7 +14,7 @@ python tracingpoint.py
 ```
 
 
-#### Description
+### Description
 
 **Tracing Point** est une application desktop interactive permettant de tracer des fonctions mathématiques avec une interface graphique moderne et intuitive. Développée en Python avec CustomTkinter et Matplotlib, cette application offre aux passionnés de mathématiques un outil puissant pour visualiser rapidement n'importe quelle fonction mathématique.
 
