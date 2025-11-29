@@ -1,6 +1,10 @@
 # Tracing Point
 
 
+### URL Vidéo
+https://www.youtube.com/watch?v=dLfvAkp2y7g
+
+
 ### SetUp
 
 Pour éxecuter le script, suivez les commmandes suivantes :
