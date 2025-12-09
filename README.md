@@ -1,15 +1,12 @@
 # Tracing Point
 
 
-<<<<<<< HEAD
 ### URL Vidéo
+
 https://www.youtube.com/watch?v=dLfvAkp2y7g
 
 
 ### SetUp
-=======
-## SetUp
->>>>>>> 7550f78ec1b654bb86837052f21ae3d9dd814ea0
 
 Pour éxecuter le script, suivez les commmandes suivantes :
 ```bash
